@@ -1,0 +1,33 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+h2 {
+    color: #333;
+}
+
+#displayMoment {
+    font-size: 20px;
+    margin: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#calculations {
+    font-size: 18px;
+    text-align: left;
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(127, 59, 59, 0.1);
+}
+
+#calculations p {
+    margin: 5px 0;
+}
