@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.mi
 n.js"></script>
 </head>
-<link rel="stylesheet" href="/moment.css">
+<link rel="stylesheet" href="moment.css">
 
 <body>
     <h2>Moment Date</h2>
@@ -20,6 +20,9 @@ n.js"></script>
     <h2>Birthday calculations</h2>
     <!-- Container for calculations -->
     <div id="calculations"></div>
+
+    <!--London times-->
+    <p id="londonTime"></p>
 
     <script type="text/javascript">
         (function () {
@@ -53,22 +56,30 @@ n.js"></script>
             eCalculations.innerHTML += '2. Number of years, months, and days between your birthdate and current date: ' + years + ' years, ' + months + ' months, and ' + days + ' days<br>';
 
             //3. Given two dates, display the date closest to the current date
-            let date1 = moment('2023-11-01', 'YYYY-MM-DD'); // Replace with the first date
-            let date2 = moment('2023-12-01', 'YYYY-MM-DD'); // Replace with the second date
+            let date1 = moment('20-11-01', 'YYYY-MM-DD'); // Replace with the first date
+            let date2 = moment('2020-12-01', 'YYYY-MM-DD'); // Replace with the second date
             let closestDate = NowMoment.diff(date1) < NowMoment.diff(date2) ? date1 : date2;
             eCalculations.innerHTML += '3. Date closest to the current date: ' + closestDate.format('MMMM Do, YYYY') + '<br>';
 
             //4. Given two dates, display whether the first date is before or after the second date
             let isBefore = date1.isBefore(date2);
             eCalculations.innerHTML += '4. Date1 is ' + (isBefore ? 'before' : 'after') + ' Date2<br>';
-
-            //5. Display the current time in London
-            let londonTime = NowMoment.tz('Europe/London');
-            eCalculations.innerHTML += '5. Current time in London: ' + londonTime.format('MMMM Do, YYYY h:mm:ss a');
-
-
         })();
     </script>
+
+<script type="text/javascript">
+    // instantiate a moment object
+    let nowMoment = moment();
+
+         // 5. Display the current time in London.
+    const londonUTCOffset = 1; // London is UTC+1
+    const timeInLondon = nowMoment.clone().utcOffset(londonUTCOffset); // utcOffset function takes a UTC offset +/- value
+
+    const londonTime = document.getElementById('londonTime');
+    londonTime.innerText = `${timeInLondon.format('DD/MM/YYYY HH:mm:ss')} is the time in London`;
+
+</script>
+
 </body>
 
 </html>
